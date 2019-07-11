@@ -86,3 +86,9 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'HelveticaNeue-Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('HelveticaNeue-CondensedObl'), url('HelveticaNeue-CondObl.woff') format('woff');
+}
