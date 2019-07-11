@@ -1,0 +1,173 @@
+$color1: #7B9FCB;
+$color2: #2D2D2D;
+$color3: #F5B010;
+$color4: #157CF9;
+$color5: #D9D9D9;
+$color6: #21416F;
+$color7: #ffffff;
+$color8: #041742;
+$color9: #F5F5F5;
+$color10: #6C95C6;
+$mainFont: 'Helvetica Neue', sans-serif;
+$subFont: 'Roboto';
+$subFont2: 'Roboto Condensed';
+html, body {
+  font-family: $mainFont;
+}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.navbar {
+  padding: 1rem;
+  border-bottom: 1px solid $color6;
+}
+
+.navbar-nav:not(.navbar-lang) .nav-link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar-main {
+  margin-right: 100px;
+}
+
+.navbar-lang .nav-item {
+  height: 40px;
+  width: 35px;
+}
+
+.navbar-nav {
+  .nav-link {
+    text-transform: uppercase;
+    color: $color7;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .active .nav-link, .nav-link:hover {
+    color: $color4;
+  }
+}
+
+.navbar-brand img {
+  height: 35px;
+}
+
+.navbar-lang {
+  .nav-link {
+    opacity: 0.5;
+  }
+  .active .nav-link, .nav-link:hover {
+    opacity: 1;
+  }
+}
+
+.header, .home {
+  background: $color8;
+}
+
+.home {
+  padding: 2em 0 5em;
+  .intro {
+    color: $color5;
+  }
+  .image {
+    padding: 0 2em;
+  }
+  .text {
+    padding: 2rem 2em 4em;
+    margin: 0 2em 0 0;
+    h1 {
+      font-family: 'Helvetica Neue';
+      font-weight: 900;
+      font-style: normal;
+      color: $color7;
+      background: url(../images/background/pattern1.png) top right no-repeat;
+      background-size: 75%;
+      font-size: 55px;
+      padding: 2rem 0 0;
+      line-height: 1;
+      span {
+        color: $color4;
+        font-size: 140px;
+      }
+    }
+    a {
+      &.collapsed:after {
+        content: attr(data-collapsed);
+      }
+      &:not(.collapsed):after {
+        content: attr(data-not-collapsed);
+      }
+    }
+    .btn {
+      width: 200px;
+      color: $color2;
+      background: $color3;
+      padding: .475rem .75rem;
+    }
+    .action {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.vision {
+  padding: 2em 0 5em;
+  background: $color9;
+  color: $color2;
+  .card-deck {
+    margin-top: -6em;
+  }
+  .card {
+    color: $color2;
+    border: none;
+    .card-img {
+      width: 150px;
+      margin: auto;
+      display: block;
+      margin-bottom: 1.5em;
+    }
+    .card-title {
+      font-family: $subFont;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .card-action {
+      text-align: center;
+      padding: 3em 0 1em;
+    }
+    a {
+      &.collapsed:after {
+        content: attr(data-collapsed);
+      }
+      &:not(.collapsed):after {
+        content: attr(data-not-collapsed);
+      }
+    }
+    .btn {
+      width: 200px;
+      color: $color10;
+      background: transparent;
+      border: 1px solid $color10;
+      padding: .75rem;
+      font-weight: bold;
+    }
+  }
+
+  .content {
+    padding: 5em 0 0;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    display: block;
+    img {
+      width: 80%;
+      margin-bottom: 2em;
+    }
+    h3 {
+      font-family: $subFont;
+      font-size: 40px;
+    }
+  }
+}
