@@ -8,11 +8,33 @@ $color7: #ffffff;
 $color8: #041742;
 $color9: #F5F5F5;
 $color10: #6C95C6;
-$mainFont: 'Helvetica Neue', sans-serif;
-$subFont: 'Roboto';
-$subFont2: 'Roboto Condensed';
+$main-font: 'Helvetica Neue', sans-serif;
+$sub-font: 'Roboto';
+$sub-font-condensed: 'Roboto Condensed';
+@mixin gradient {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='519.013' height='304.848' viewBox='0 0 519.013 304.848'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23081f52'/%3E%3Cstop offset='1' stop-color='%2318345e' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath id='Rectangle_80' data-name='Rectangle 80' d='M259.507,0h0A259.507,259.507,0,0,1,519.013,259.507v45.341a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V259.507A259.507,259.507,0,0,1,259.507,0Z' opacity='0.05' fill='url(%23linear-gradient)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+@mixin title {
+  font-family: $sub-font;
+  text-align: center;
+  text-transform: uppercase;
+}
+@mixin big-title {
+  font-family: $sub-font;
+  font-size: 40px;
+  text-align: center;
+}
+@mixin background-footer {
+  background: rgb(2,33,104);
+  background: url('../images/background/pattern3.png') right 10% bottom no-repeat, linear-gradient(90deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 40%, rgba(3,25,75,1) 100%);
+  background-size: 30%;
+}
+@mixin background-partner {
+  background: url('../images/background/pattern2.png') center bottom no-repeat;
+}
 html, body {
-  font-family: $mainFont;
+  font-family: $main-font;
 }
 .btn:focus,.btn:active {
   outline: none !important;
@@ -116,24 +138,22 @@ html, body {
   padding: 2em 0 5em;
   background: $color9;
   color: $color2;
-  .card-deck {
+  .card-columns {
     margin-top: -6em;
   }
   .card {
     color: $color2;
     border: none;
-    .card-img {
+    &-img {
       width: 150px;
       margin: auto;
       display: block;
       margin-bottom: 1.5em;
     }
-    .card-title {
-      font-family: $subFont;
-      text-align: center;
-      text-transform: uppercase;
+    &-title {
+      @include big-title();
     }
-    .card-action {
+    &-action {
       text-align: center;
       padding: 3em 0 1em;
     }
@@ -165,9 +185,68 @@ html, body {
       width: 80%;
       margin-bottom: 2em;
     }
+  }
+}
+
+.portfolio {
+  background: $color5;
+  color: $color2;
+  &-top {
+    padding: 12em 0;
+    background: url(../images/background/bg1.jpg) center top no-repeat;
+    // background-attachment: fixed;
+    color: $color7;
+    height: 700px;
+    text-align: center;
     h3 {
-      font-family: $subFont;
-      font-size: 40px;
+      @include title();
+      font-size: 54px;
     }
   }
+  &-body {
+    padding: 3em 0;
+    .card {
+      border: 0;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      &:after {
+        content: ' ';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 115px;
+        border-radius: 50%;
+        @include gradient();
+      }
+      &-img {
+        height: 180px;
+        display: block;
+        margin-bottom: 1rem;
+        text-align: center;
+        img {
+          max-height: 100%;
+        }
+      }
+      &-title {
+        @include title;
+      }
+      &-body {
+        padding: 1.25rem 4.5rem;
+      }
+    }
+  }
+}
+.title {
+  @include title();
+}
+.big-title {
+  @include big-title();
+}
+
+.partner {
+  padding: 3em 0;
+}
+.footer {
+  @include background-footer();
 }
