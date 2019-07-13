@@ -14,4 +14,24 @@ jQuery(document).ready(function($) {
       }, 500);
     }
     $('[data-scroll]').on('click', scrollToSection);
-  }(jQuery));
+
+    ScrollToTop('.back-to-top');
+}(jQuery));
+
+function ScrollToTop(selector) {
+  /**
+  * Scroll to Top
+  */
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $(selector).addClass('back-to-top--is-visible')
+    } else {
+        $(selector).removeClass('back-to-top--is-visible');
+    }
+  });
+  $(selector).click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+  });
+}
