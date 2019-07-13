@@ -337,7 +337,7 @@ a:hover, a:active {
     margin-top: 3em;
   }
   &-list {
-    margin-top: 8em;
+    margin-top: 5em;
     .item {
       &-body {
         display: flex;
@@ -345,7 +345,7 @@ a:hover, a:active {
         align-items: center;
         -ms-flex-pack: center;
         justify-content: center;
-        height: 8em;
+        height: 10em;
         padding: .75rem;
       }
     }
@@ -412,4 +412,26 @@ a:hover {
 }
 .social {
   margin-top: 1rem;
+}
+
+.slick {
+  &-prev,
+  &-next {
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+  }
+  &-prev:before,
+  &-next:before {
+    content: '';
+    background: url(../images/icon/icon-close.svg) left top no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    padding: 5px 10px;
+    display: block;
+  }
+  &-next:before {
+    transform: rotate(-180deg);
+  }
 }

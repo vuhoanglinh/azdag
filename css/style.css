@@ -352,7 +352,7 @@ a:hover, a:active {
 }
 
 .partner-list {
-  margin-top: 8em;
+  margin-top: 5em;
 }
 
 .partner-list .item-body {
@@ -365,7 +365,7 @@ a:hover, a:active {
   -ms-flex-pack: center;
   -webkit-box-pack: center;
           justify-content: center;
-  height: 8em;
+  height: 10em;
   padding: .75rem;
 }
 
@@ -463,5 +463,26 @@ a:hover {
 
 .social {
   margin-top: 1rem;
+}
+
+.slick-prev, .slick-next {
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+}
+
+.slick-prev:before, .slick-next:before {
+  content: '';
+  background: url(../images/icon/icon-close.svg) left top no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  padding: 5px 10px;
+  display: block;
+}
+
+.slick-next:before {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
 }
 /*# sourceMappingURL=style.css.map */
