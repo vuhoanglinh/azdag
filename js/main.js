@@ -6,18 +6,30 @@ jQuery(document).ready(function($) {
     // Make sure to add the `data-scroll` attribute to your `<a>` tag.
     // Example: 
     // `<a data-scroll href="#my-section">My Section</a>` will scroll to an element with the id of 'my-section'.
-    function scrollToSection(event) {
+    function scrollTo(event) {
       event.preventDefault();
-      var $section = $($(this).attr('href')); 
-      $('html, body').animate({
-        scrollTop: $section.offset().top
-      }, 500);
+      var selector = $(this).attr('href'); 
+      history.pushState(null, null, selector);
+      scrollToSection(selector);
     }
-    $('[data-scroll]').on('click', scrollToSection);
-
+    $('[data-scroll]').on('click', scrollTo);
     scrollToTop('.back-to-top');
-    carousel('[data-slick]');
+    slickCarousel('[data-slick]');
+    scrollToSection(location.hash);
+    // $(window).on( 'hashchange', function( e ){
+    //   event.preventDefault();
+    //   scrollToSection(location.hash);
+    // });
 }(jQuery));
+
+function scrollToSection(selector) {
+  var section = $(selector);
+  if (section) {
+    $('html, body').animate({
+      scrollTop: section.offset().top
+    }, 500);
+  }
+}
 
 function scrollToTop(selector) {
   /**
@@ -37,13 +49,15 @@ function scrollToTop(selector) {
   });
 }
 
-function carousel(selector) {
+function slickCarousel(selector) {
   // Apply carousel for library media
   $(selector).slick({
     slidesToShow: 5,
     slidesToScroll: 5,
     arrows: true,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: 1024,
