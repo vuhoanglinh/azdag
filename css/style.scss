@@ -36,9 +36,40 @@ $sub-font-condensed: 'Roboto Condensed';
 html, body {
   font-family: $main-font;
 }
-.btn:focus,.btn:active {
+*:focus,*:active {
   outline: none !important;
-  box-shadow: none;
+}
+a {
+  color: $color4;
+}
+a:hover, a:active {
+  color: $color6;
+}
+.icon-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+  &:before, &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 22px;
+    width: 2px;
+    background-color: $color2;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  
+  &:after {
+    transform: rotate(-45deg);
+  }
 }
 .back-to-top {
   position: fixed;
@@ -245,6 +276,9 @@ html, body {
   }
   &-body {
     padding: 3em 0;
+    .title {
+      margin-bottom: 2rem;
+    }
     .card {
       border: 0;
       background: transparent;
@@ -284,33 +318,45 @@ html, body {
   @include big-title();
 }
 
+.modal {
+  &-content {
+    border: 0;
+  }
+  &-body {
+    padding: 2rem 1rem 1rem;
+  }
+  .icon-close {
+    z-index: 1000;
+  }
+}
 .partner {
-  background: url(../images/background/pattern5.svg) center top 100px no-repeat;
+  background: url(../images/background/pattern5.svg) center bottom no-repeat;
   padding: 3em 0;
   height: 650px;
+  &-modal-content {
+    margin-top: 3em;
+  }
+  &-list {
+    margin-top: 8em;
+    .item {
+      &-body {
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: 8em;
+        padding: .75rem;
+      }
+    }
+  }
 }
 .footer {
-  padding: 3em 0 1em;
+  padding: 3em 0;
   color: $color7;
   @include background-footer();
   .title {
     margin-bottom: 2rem;
-  }
-}
-.contact {
-  text-align: center;
-  p, .phone {
-    font-size: 1.45rem;
-    color: $color7;
-    margin-bottom: .75rem;
-  }
-  .mail {
-    @include title();
-    font-size: 1.75rem;
-    text-transform: lowercase;
-    color: $color4;
-    margin: 0;
-    line-height: 1.5;
   }
   .form-row {
     align-items: center;
@@ -336,6 +382,23 @@ html, body {
       padding: .575rem 1.75rem;
       height: 50px;
       border-radius: 10px;
+    }
+  }
+  .content {
+    margin-top: 2em;
+    text-align: center;
+    p, .phone {
+      font-size: 1.45rem;
+      color: $color7;
+      margin-bottom: .75rem;
+    }
+    .mail {
+      @include title();
+      font-size: 1.75rem;
+      text-transform: lowercase;
+      color: $color4;
+      margin: 0;
+      line-height: 1.5;
     }
   }
 }

@@ -15,10 +15,11 @@ jQuery(document).ready(function($) {
     }
     $('[data-scroll]').on('click', scrollToSection);
 
-    ScrollToTop('.back-to-top');
+    scrollToTop('.back-to-top');
+    carousel('[data-slick]');
 }(jQuery));
 
-function ScrollToTop(selector) {
+function scrollToTop(selector) {
   /**
   * Scroll to Top
   */
@@ -33,5 +34,41 @@ function ScrollToTop(selector) {
     $('body,html').animate({
         scrollTop : 0                       // Scroll to top of body
     }, 500);
+  });
+}
+
+function carousel(selector) {
+  // Apply carousel for library media
+  $(selector).slick({
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    arrows: true,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 667,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
   });
 }

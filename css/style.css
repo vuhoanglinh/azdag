@@ -2,10 +2,48 @@ html, body {
   font-family: "Helvetica Neue", sans-serif;
 }
 
-.btn:focus, .btn:active {
+*:focus, *:active {
   outline: none !important;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+}
+
+a {
+  color: #157CF9;
+}
+
+a:hover, a:active {
+  color: #21416F;
+}
+
+.icon-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+}
+
+.icon-close:hover {
+  opacity: 1;
+}
+
+.icon-close:before, .icon-close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 22px;
+  width: 2px;
+  background-color: #2D2D2D;
+}
+
+.icon-close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.icon-close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .back-to-top {
@@ -236,6 +274,10 @@ html, body {
   padding: 3em 0;
 }
 
+.portfolio-body .title {
+  margin-bottom: 2rem;
+}
+
 .portfolio-body .card {
   border: 0;
   background: transparent;
@@ -287,14 +329,48 @@ html, body {
   text-align: center;
 }
 
+.modal-content {
+  border: 0;
+}
+
+.modal-body {
+  padding: 2rem 1rem 1rem;
+}
+
+.modal .icon-close {
+  z-index: 1000;
+}
+
 .partner {
-  background: url(../images/background/pattern5.svg) center top 100px no-repeat;
+  background: url(../images/background/pattern5.svg) center bottom no-repeat;
   padding: 3em 0;
   height: 650px;
 }
 
+.partner-modal-content {
+  margin-top: 3em;
+}
+
+.partner-list {
+  margin-top: 8em;
+}
+
+.partner-list .item-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 8em;
+  padding: .75rem;
+}
+
 .footer {
-  padding: 3em 0 1em;
+  padding: 3em 0;
   color: #ffffff;
   background: #022168;
   background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, -webkit-gradient(linear, left top, right top, from(#022168), color-stop(40%, #02226b), to(#03194b));
@@ -306,28 +382,7 @@ html, body {
   margin-bottom: 2rem;
 }
 
-.contact {
-  text-align: center;
-}
-
-.contact p, .contact .phone {
-  font-size: 1.45rem;
-  color: #ffffff;
-  margin-bottom: .75rem;
-}
-
-.contact .mail {
-  font-family: "Roboto";
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.75rem;
-  text-transform: lowercase;
-  color: #157CF9;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.contact .form-row {
+.footer .form-row {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -336,7 +391,7 @@ html, body {
           justify-content: center;
 }
 
-.contact .form-row .form-control {
+.footer .form-row .form-control {
   border: 2px solid #157CF9;
   background: transparent;
   color: #ffffff;
@@ -345,33 +400,55 @@ html, body {
   border-radius: 10px;
 }
 
-.contact .form-row .form-control::-webkit-input-placeholder {
+.footer .form-row .form-control::-webkit-input-placeholder {
   color: #ffffff;
 }
 
-.contact .form-row .form-control:-ms-input-placeholder {
+.footer .form-row .form-control:-ms-input-placeholder {
   color: #ffffff;
 }
 
-.contact .form-row .form-control::-ms-input-placeholder {
+.footer .form-row .form-control::-ms-input-placeholder {
   color: #ffffff;
 }
 
-.contact .form-row .form-control::placeholder {
+.footer .form-row .form-control::placeholder {
   color: #ffffff;
 }
 
-.contact .form-row .form-control:focus {
+.footer .form-row .form-control:focus {
   outline: none !important;
 }
 
-.contact .form-row .btn {
+.footer .form-row .btn {
   background: #157CF9;
   color: #ffffff;
   border: 0;
   padding: .575rem 1.75rem;
   height: 50px;
   border-radius: 10px;
+}
+
+.footer .content {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.footer .content p, .footer .content .phone {
+  font-size: 1.45rem;
+  color: #ffffff;
+  margin-bottom: .75rem;
+}
+
+.footer .content .mail {
+  font-family: "Roboto";
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  text-transform: lowercase;
+  color: #157CF9;
+  margin: 0;
+  line-height: 1.5;
 }
 
 a:hover {
