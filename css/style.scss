@@ -335,7 +335,7 @@ a:hover, a:active {
   &-top {
     padding: 12em 0;
     background: url(../images/background/bg1.jpg) center top no-repeat;
-    // background-attachment: fixed;
+    background-attachment: fixed;
     color: $white;
     height: 700px;
     text-align: center;
@@ -418,7 +418,7 @@ a:hover, a:active {
   }
 }
 .partner {
-  background: url(../images/background/pattern5.svg) center bottom no-repeat;
+  @include background-partner();
   padding: 3em 0;
   @include media-breakpoint-up(md) {
     height: 650px;

@@ -28,4 +28,18 @@
 }
 @mixin background-partner {
   background: url(../images/background/pattern5.svg) center bottom no-repeat;
+  background-attachment: fixed;
+}
+
+@mixin color-change($name, $from, $to) {
+  animation: 5s linear 0s infinite alternate both running $name;
+  @keyframes #{$name} {
+    0% {
+        background: $from;
+    }
+
+    to {
+        background: $to;
+    }
+}
 }
