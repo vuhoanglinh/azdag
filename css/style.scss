@@ -53,6 +53,10 @@ a:hover, a:active {
   opacity: 0;
   outline: none;
   border: 0;
+  @include media-breakpoint-down(xs) {
+    padding: .75rem;
+    right: .75rem;
+  }
   &:hover, &:active {
     background: linear-gradient(0deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 39%, rgba(3,25,75,1) 100%);
   }
@@ -66,6 +70,10 @@ a:hover, a:active {
     line-height: 1;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+    @include media-breakpoint-down(xs) {
+      height: 1.5em;
+      width: 1.5em;
+    }
   }
 
   &.back-to-top--is-visible {
@@ -225,12 +233,15 @@ a:hover, a:active {
       font-size: 55px;
       padding: 2rem 0 0;
       line-height: 1;
+      @include media-breakpoint-down(md) {
+        font-size: 48px;
+      }
       span {
         color: $azure-radiance;
         font-size: 140px;
         display: block;
-        @include media-breakpoint-down(xs) {
-          font-size: 120px;
+        @include media-breakpoint-down(md) {
+          font-size: 110px;
         }
       }
     }
@@ -356,6 +367,9 @@ a:hover, a:active {
         top: 115px;
         border-radius: 50%;
         @include bg-vision();
+        @include media-breakpoint-down(md) {
+          top: 100px;
+        }
       }
       &-img {
         height: 180px;
@@ -377,6 +391,9 @@ a:hover, a:active {
         padding: 1.25rem 4.5rem;
         @include media-breakpoint-down(lg) {
           padding: 1.25rem 3rem;
+        }
+        @include media-breakpoint-down(md) {
+          padding: 1.25rem;
         }
       }
     }
@@ -472,6 +489,9 @@ a:hover, a:active {
       padding: .575rem 1.75rem;
       height: 50px;
       border-radius: 10px;
+      @include media-breakpoint-down(xs) {
+        padding: .575rem 1.25rem;
+      }
     }
   }
   .content {
@@ -520,6 +540,10 @@ a:hover {
     height: 50px;
     padding: 5px 10px;
     display: block;
+    @include media-breakpoint-down(xs) {
+      width: 40px;
+      height: 40px;
+    }
   }
   &-next:before {
     transform: rotate(-180deg);
@@ -527,12 +551,12 @@ a:hover {
 
   &-prev {
     @include media-breakpoint-down(md) {
-      left: 25px;
+      left: 15px;
     }
   }
   &-next {
     @include media-breakpoint-down(md) {
-      right: 25px;
+      right: 15px;
     }
   }
 }

@@ -71,15 +71,15 @@ function slickCarousel(selector) {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         }
       },
       {
         breakpoint: 667,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         }
       }
       // You can unslick at a given breakpoint now by adding:

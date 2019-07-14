@@ -63,6 +63,13 @@ a:hover, a:active {
   border: 0;
 }
 
+@media (max-width: 575.98px) {
+  .back-to-top {
+    padding: .75rem;
+    right: .75rem;
+  }
+}
+
 .back-to-top:hover, .back-to-top:active {
   background: -webkit-gradient(linear, left bottom, left top, from(#022168), color-stop(39%, #02226b), to(#03194b));
   background: linear-gradient(0deg, #022168 0%, #02226b 39%, #03194b 100%);
@@ -77,6 +84,13 @@ a:hover, a:active {
   line-height: 1;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+}
+
+@media (max-width: 575.98px) {
+  .back-to-top .icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
 }
 
 .back-to-top.back-to-top--is-visible {
@@ -264,15 +278,21 @@ a:hover, a:active {
   line-height: 1;
 }
 
+@media (max-width: 991.98px) {
+  .home .text h1 {
+    font-size: 48px;
+  }
+}
+
 .home .text h1 span {
   color: #157CF9;
   font-size: 140px;
   display: block;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   .home .text h1 span {
-    font-size: 120px;
+    font-size: 110px;
   }
 }
 
@@ -434,6 +454,12 @@ a:hover, a:active {
   background-size: contain;
 }
 
+@media (max-width: 991.98px) {
+  .portfolio-body .card:after {
+    top: 100px;
+  }
+}
+
 .portfolio-body .card-img {
   height: 180px;
   display: block;
@@ -465,6 +491,12 @@ a:hover, a:active {
 @media (max-width: 1199.98px) {
   .portfolio-body .card-body {
     padding: 1.25rem 3rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .portfolio-body .card-body {
+    padding: 1.25rem;
   }
 }
 
@@ -628,6 +660,12 @@ a:hover, a:active {
   border-radius: 10px;
 }
 
+@media (max-width: 575.98px) {
+  .footer .form-row .btn {
+    padding: .575rem 1.25rem;
+  }
+}
+
 .footer .content {
   margin-top: 2em;
   text-align: center;
@@ -680,6 +718,13 @@ a:hover {
   display: block;
 }
 
+@media (max-width: 575.98px) {
+  .slick-prev:before, .slick-next:before {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .slick-next:before {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
@@ -687,13 +732,13 @@ a:hover {
 
 @media (max-width: 991.98px) {
   .slick-prev {
-    left: 25px;
+    left: 15px;
   }
 }
 
 @media (max-width: 991.98px) {
   .slick-next {
-    right: 25px;
+    right: 15px;
   }
 }
 /*# sourceMappingURL=style.css.map */
