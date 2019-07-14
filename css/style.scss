@@ -1,49 +1,18 @@
-$color1: #7B9FCB;
-$color2: #2D2D2D;
-$color3: #F5B010;
-$color4: #157CF9;
-$color5: #D9D9D9;
-$color6: #21416F;
-$color7: #ffffff;
-$color8: #041742;
-$color9: #F5F5F5;
-$color10: #6C95C6;
-$main-font: 'Helvetica Neue', sans-serif;
-$sub-font: 'Roboto';
-$sub-font-condensed: 'Roboto Condensed';
-@mixin gradient {
-  background-image: url(../images/background/pattern4.svg);
-  background-repeat: no-repeat;
-}
-@mixin title {
-  font-family: $sub-font;
-  text-align: center;
-  text-transform: uppercase;
-}
-@mixin big-title {
-  font-family: $sub-font;
-  font-size: 40px;
-  text-align: center;
-}
-@mixin background-footer {
-  background: rgb(2,33,104);
-  background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, linear-gradient(90deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 40%, rgba(3,25,75,1) 100%);
-  background-size: 30%, 100%;
-}
-@mixin background-partner {
-  background: url(../images/background/pattern5.svg) center bottom no-repeat;
-}
+@import "variables";
+@import "breakpoints";
+@import "mixin";
 html, body {
   font-family: $main-font;
 }
-*:focus,*:active {
+*:focus,*:active, .btn:focus, .btn:active {
   outline: none !important;
+  box-shadow: none;
 }
 a {
-  color: $color4;
+  color: $azure-radiance;
 }
 a:hover, a:active {
-  color: $color6;
+  color: $astronaut;
 }
 .icon-close {
   position: absolute;
@@ -61,7 +30,7 @@ a:hover, a:active {
     content: ' ';
     height: 22px;
     width: 2px;
-    background-color: $color2;
+    background-color: $mine-shaft;
   }
   &:before {
     transform: rotate(45deg);
@@ -102,87 +71,167 @@ a:hover, a:active {
   &.back-to-top--is-visible {
     visibility: visible;
     opacity: 1;
+    display: block;
   }
-
-  @media only screen and (min-width: 64rem) {
-    & {
-      display: block;
-    }
-  }
-
 }
 .navbar {
   padding: 1rem;
-  border-bottom: 1px solid $color6;
-}
-
-.navbar-nav:not(.navbar-lang) .nav-link {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.navbar-main {
-  margin-right: 100px;
-}
-
-.navbar-lang .nav-item {
-  height: 40px;
-  width: 35px;
-}
-
-.navbar-nav {
-  .nav-link {
-    text-transform: uppercase;
-    color: $color7;
-    font-size: 14px;
-    font-weight: bold;
+  border-bottom: 1px solid $astronaut;
+  .container {
+    position: relative;
   }
-  .active .nav-link, .nav-link:hover {
-    color: $color4;
-  }
-}
 
-.navbar-brand img {
-  height: 35px;
-}
-
-.navbar-lang {
-  .nav-link {
-    opacity: 0.5;
+  &-nav:not(.navbar-lang) .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  .active .nav-link, .nav-link:hover {
-    opacity: 1;
+
+  &-main {
+    margin-right: 100px;
+    @include media-breakpoint-down(lg) { 
+      margin: 0;
+      text-align: center;
+    }
+  }
+  &-lang {
+    @include media-breakpoint-down(lg) {
+      position: absolute;
+      top: 0;
+      right: 80px; 
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+    @include media-breakpoint-up(lg) { 
+      position: unset;
+      top: unset;
+      left: unset;  
+    }
+    .nav-item {
+      height: 40px;
+      width: 35px;
+    }
+    .nav-link {
+      opacity: 0.5;
+      @include media-breakpoint-down(lg) { 
+        padding-right: .5rem;
+        padding-left: .5rem;
+      }
+    }
+    .active .nav-link, .nav-link:hover {
+      opacity: 1;
+    }
+  }
+
+  &-nav {
+    .nav-link {
+      text-transform: uppercase;
+      color: $white;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .active .nav-link, .nav-link:hover {
+      color: $azure-radiance;
+    }
+  }
+
+  &-brand img {
+    height: 35px;
+  }
+
+  &-toggler {
+    min-width: 25px;
+    width: 30px;
+    height: 37px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    & span {
+      width: 18px;
+      height: 2px;
+      position: absolute;
+      left: 50%;
+      display: block;
+      border-radius: 50px;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transition: top 0.6s cubic-bezier(0.4, 0.25, 0, 1),
+        -webkit-transform 0.6s cubic-bezier(0.4, 0.25, 0, 1);
+      transition: top 0.6s cubic-bezier(0.4, 0.25, 0, 1),
+        -webkit-transform 0.6s cubic-bezier(0.4, 0.25, 0, 1);
+      transition: transform 0.6s cubic-bezier(0.4, 0.25, 0, 1),
+        top 0.6s cubic-bezier(0.4, 0.25, 0, 1);
+      transition: transform 0.6s cubic-bezier(0.4, 0.25, 0, 1),
+        top 0.6s cubic-bezier(0.4, 0.25, 0, 1),
+        -webkit-transform 0.6s cubic-bezier(0.4, 0.25, 0, 1);
+      background-color: $white;
+      cursor: pointer;
+  
+      &:nth-child(1) {
+        top: 11px;
+      }
+      &:nth-child(2) {
+        top: 17px;
+      }
+    }
+  
+    &:not(.collapsed) {
+      span {
+        &:nth-child(1) {
+          -webkit-transform: translate(-50%, 3px) rotate(-45deg);
+          transform: translate(-50%, 3px) rotate(-45deg);
+        }
+        &:nth-child(2) {
+          -webkit-transform: translate(-50%, -3px) rotate(45deg);
+          transform: translate(-50%, -3px) rotate(45deg);
+        }
+      }
+    }
   }
 }
 
 .header, .home {
-  background: $color8;
+  background: $tangaroa;
 }
 
 .home {
   padding: 2em 0 5em;
   .intro {
-    color: $color5;
+    color: $alto;
   }
   .image {
     padding: 0 2em;
+    text-align: center;
   }
   .text {
     padding: 2rem 2em 4em;
     margin: 0 2em 0 0;
+    @include media-breakpoint-only(lg) {
+      padding: 0rem 0em 4em;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 0;
+      margin: 0;
+    }
     h1 {
       font-family: 'Helvetica Neue';
       font-weight: 900;
       font-style: normal;
-      color: $color7;
+      color: $white;
       background: url(../images/background/pattern1.svg) top right no-repeat;
       background-size: 75%;
       font-size: 55px;
       padding: 2rem 0 0;
       line-height: 1;
       span {
-        color: $color4;
+        color: $azure-radiance;
         font-size: 140px;
+        display: block;
+        @include media-breakpoint-down(xs) {
+          font-size: 120px;
+        }
       }
     }
     a {
@@ -195,8 +244,8 @@ a:hover, a:active {
     }
     .btn {
       width: 200px;
-      color: $color2;
-      background: $color3;
+      color: $mine-shaft;
+      background: $butter-cup;
       padding: .475rem .75rem;
     }
     .action {
@@ -207,14 +256,19 @@ a:hover, a:active {
 
 .vision {
   padding: 2em 0 5em;
-  background: $color9;
-  color: $color2;
-  .card-columns {
+  background: $wild-sand;
+  color: $mine-shaft;
+  .card-deck {
     margin-top: -6em;
   }
   .card {
-    color: $color2;
+    color: $mine-shaft;
     border: none;
+    background: $white;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 25px;
+      flex: unset;
+    }
     &-img {
       width: 150px;
       margin: auto;
@@ -224,9 +278,11 @@ a:hover, a:active {
     &-title {
       @include big-title();
     }
-    &-action {
+    &-footer {
       text-align: center;
-      padding: 3em 0 1em;
+      padding: 1.75rem 1.25rem;
+      background: $white;
+      border: none;
     }
     a {
       &.collapsed:after {
@@ -238,9 +294,9 @@ a:hover, a:active {
     }
     .btn {
       width: 200px;
-      color: $color10;
+      color: $danube;
       background: transparent;
-      border: 1px solid $color10;
+      border: 1px solid $danube;
       padding: .75rem;
       font-weight: bold;
     }
@@ -252,6 +308,9 @@ a:hover, a:active {
     text-align: center;
     width: 50%;
     display: block;
+    @include media-breakpoint-down(md) {
+      width: 80%;
+    }
     img {
       width: 80%;
       margin-bottom: 2em;
@@ -260,18 +319,23 @@ a:hover, a:active {
 }
 
 .portfolio {
-  background: $color5;
-  color: $color2;
+  background: $alto;
+  color: $mine-shaft;
   &-top {
     padding: 12em 0;
     background: url(../images/background/bg1.jpg) center top no-repeat;
     // background-attachment: fixed;
-    color: $color7;
+    color: $white;
     height: 700px;
     text-align: center;
     h3 {
       @include title();
-      font-size: 54px;
+      @include media-breakpoint-up(md) {
+        font-size: 54px;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 38px;
+      }
     }
   }
   &-body {
@@ -291,7 +355,7 @@ a:hover, a:active {
         position: absolute;
         top: 115px;
         border-radius: 50%;
-        @include gradient();
+        @include bg-vision();
       }
       &-img {
         height: 180px;
@@ -304,9 +368,16 @@ a:hover, a:active {
       }
       &-title {
         @include title;
+        @include media-breakpoint-down(md) {
+          width: 85%;
+          margin: 1rem auto;
+        }
       }
       &-body {
         padding: 1.25rem 4.5rem;
+        @include media-breakpoint-down(lg) {
+          padding: 1.25rem 3rem;
+        }
       }
     }
   }
@@ -332,12 +403,24 @@ a:hover, a:active {
 .partner {
   background: url(../images/background/pattern5.svg) center bottom no-repeat;
   padding: 3em 0;
-  height: 650px;
+  @include media-breakpoint-up(md) {
+    height: 650px;
+  }
+  @include media-breakpoint-only(md) {
+    background-size: 650px;
+    height: 550px;
+  }
+  @include media-breakpoint-down(xs) {
+    background-size: 550px;
+    height: 450px;
+  }
   &-modal-content {
     margin-top: 3em;
   }
   &-list {
-    margin-top: 5em;
+    @include media-breakpoint-up(md) {
+      margin-top: 5em;
+    }
     .item {
       &-body {
         display: flex;
@@ -353,7 +436,7 @@ a:hover, a:active {
 }
 .footer {
   padding: 3em 0;
-  color: $color7;
+  color: $white;
   @include background-footer();
   .title {
     margin-bottom: 2rem;
@@ -361,23 +444,30 @@ a:hover, a:active {
   .form-row {
     align-items: center;
     justify-content: center;
+    .form-group {
+      @include media-breakpoint-down(md) {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+      }
+    }
     .form-control {
-      border: 2px solid $color4;
+      border: 2px solid $azure-radiance;
       background: transparent;
-      color: $color7;
+      color: $white;
       padding: 1.25rem;
       height: 50px;
       border-radius: 10px;
       &::placeholder {
-        color: $color7;
+        color: $white;
       }
       &:focus {
         outline: none !important;
       }
     }
     .btn {
-      background: $color4;
-      color: $color7;
+      background: $azure-radiance;
+      color: $white;
       border: 0;
       padding: .575rem 1.75rem;
       height: 50px;
@@ -389,14 +479,14 @@ a:hover, a:active {
     text-align: center;
     p, .phone {
       font-size: 1.45rem;
-      color: $color7;
+      color: $white;
       margin-bottom: .75rem;
     }
     .mail {
       @include title();
       font-size: 1.75rem;
       text-transform: lowercase;
-      color: $color4;
+      color: $azure-radiance;
       margin: 0;
       line-height: 1.5;
     }
@@ -433,5 +523,16 @@ a:hover {
   }
   &-next:before {
     transform: rotate(-180deg);
+  }
+
+  &-prev {
+    @include media-breakpoint-down(md) {
+      left: 25px;
+    }
+  }
+  &-next {
+    @include media-breakpoint-down(md) {
+      right: 25px;
+    }
   }
 }

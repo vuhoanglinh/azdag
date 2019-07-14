@@ -1,0 +1,31 @@
+@mixin bg-vision {
+  background-image: url(../images/background/pattern4.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@mixin title {
+  font-family: $sub-font;
+  text-align: center;
+  text-transform: uppercase;
+}
+@mixin big-title {
+  font-family: $sub-font;
+  font-size: 40px;
+  text-align: center;
+}
+@mixin background-footer {
+  background: rgb(2,33,104);
+  background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, linear-gradient(90deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 40%, rgba(3,25,75,1) 100%);
+  @include media-breakpoint-up(lg) {
+    background-size: 30%, 100%;
+  }
+  @include media-breakpoint-down(lg) {
+    background-size: 60%, 100%;
+  }
+  @include media-breakpoint-down(xs) {
+    background-size: 80%, 100%;
+  }
+}
+@mixin background-partner {
+  background: url(../images/background/pattern5.svg) center bottom no-repeat;
+}

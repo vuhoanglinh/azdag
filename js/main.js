@@ -28,6 +28,8 @@ function scrollToSection(selector) {
     $('html, body').animate({
       scrollTop: section.offset().top
     }, 500);
+    $('.navbar-toggler').addClass('collapsed');
+    $('.navbar-collapse').removeClass('show');
   }
 }
 
