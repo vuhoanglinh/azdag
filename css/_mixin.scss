@@ -13,6 +13,15 @@
   font-size: 40px;
   text-align: center;
 }
+@mixin title-condensed {
+  font-family: $sub-font-condensed;
+  text-align: center;
+}
+@mixin big-title-condensed {
+  font-family: $sub-font-condensed;
+  font-size: 40px;
+  text-align: center;
+}
 @mixin background-footer {
   background: rgb(2,33,104);
   background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, linear-gradient(90deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 40%, rgba(3,25,75,1) 100%);

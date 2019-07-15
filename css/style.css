@@ -1,5 +1,6 @@
 html, body {
   font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
 }
 
 *:focus, *:active, .btn:focus, .btn:active {
@@ -308,7 +309,8 @@ a:hover, a:active {
   width: 200px;
   color: #2D2D2D;
   background: #F5B010;
-  padding: .475rem .75rem;
+  padding: 1rem .75rem;
+  font-weight: bold;
 }
 
 .home .text .action {
@@ -321,8 +323,15 @@ a:hover, a:active {
   color: #2D2D2D;
 }
 
-.vision .card-deck {
+.vision .card-deck, .vision .card-columns {
   margin-top: -6em;
+}
+
+@media (max-width: 991.98px) {
+  .vision .card-columns {
+    -webkit-column-count: 1;
+            column-count: 1;
+  }
 }
 
 .vision .card {
@@ -348,9 +357,11 @@ a:hover, a:active {
 }
 
 .vision .card-title {
-  font-family: "Roboto";
-  font-size: 40px;
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .vision .card-footer {
@@ -402,28 +413,52 @@ a:hover, a:active {
 }
 
 .portfolio-top {
-  padding: 12em 0;
   background: url(../images/background/bg1.jpg) center top no-repeat;
   color: #ffffff;
   height: 700px;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .portfolio-top {
+    padding-top: 16em;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .portfolio-top h3 {
-  font-family: "Roboto";
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
   text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -2px;
 }
 
 @media (min-width: 768px) {
   .portfolio-top h3 {
-    font-size: 54px;
+    font-size: 60px;
   }
 }
 
 @media (max-width: 991.98px) {
   .portfolio-top h3 {
-    font-size: 38px;
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-top h3 {
+    font-size: 40px;
   }
 }
 
@@ -431,8 +466,15 @@ a:hover, a:active {
   padding: 3em 0;
 }
 
-.portfolio-body .title {
+.portfolio-body .title, .portfolio-body .title-condensed {
   margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 575.98px) {
+  .portfolio-body .title, .portfolio-body .title-condensed {
+    font-size: 44px;
+  }
 }
 
 .portfolio-body .card {
@@ -472,9 +514,11 @@ a:hover, a:active {
 }
 
 .portfolio-body .card-title {
-  font-family: "Roboto";
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
-  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 @media (max-width: 991.98px) {
@@ -484,14 +528,14 @@ a:hover, a:active {
   }
 }
 
-.portfolio-body .card-body {
-  padding: 1.25rem 4.5rem;
+@media (max-width: 575.98px) {
+  .portfolio-body .card-title {
+    font-size: 28px;
+  }
 }
 
-@media (max-width: 1199.98px) {
-  .portfolio-body .card-body {
-    padding: 1.25rem 3rem;
-  }
+.portfolio-body .card-body {
+  padding: 1.25rem 4.5rem;
 }
 
 @media (max-width: 991.98px) {
@@ -501,13 +545,27 @@ a:hover, a:active {
 }
 
 .title {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   text-align: center;
   text-transform: uppercase;
 }
 
 .big-title {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+.title-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.big-title-condensed {
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 40px;
   text-align: center;
 }
@@ -531,7 +589,7 @@ a:hover, a:active {
 
 @media (min-width: 768px) {
   .partner {
-    height: 650px;
+    height: 680px;
   }
 }
 
@@ -549,13 +607,33 @@ a:hover, a:active {
   }
 }
 
+.partner h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+@media (max-width: 575.98px) {
+  .partner h3 {
+    font-size: 40px;
+  }
+}
+
 .partner-modal-content {
   margin-top: 3em;
 }
 
+.partner-modal-content h4 {
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .partner-list {
-    margin-top: 5em;
+    margin-top: 8em;
   }
 }
 
@@ -599,8 +677,18 @@ a:hover, a:active {
   }
 }
 
-.footer .title {
+.footer .title-condensed {
   margin-bottom: 2rem;
+  font-family: "Roboto Condensed", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+@media (max-width: 575.98px) {
+  .footer .title-condensed {
+    font-size: 32px;
+  }
 }
 
 .footer .form-row {
@@ -627,8 +715,9 @@ a:hover, a:active {
   background: transparent;
   color: #ffffff;
   padding: 1.25rem;
-  height: 50px;
+  height: 60px;
   border-radius: 10px;
+  font-size: 16px;
 }
 
 .footer .form-row .form-control::-webkit-input-placeholder {
@@ -656,8 +745,9 @@ a:hover, a:active {
   color: #ffffff;
   border: 0;
   padding: .575rem 1.75rem;
-  height: 50px;
+  height: 60px;
   border-radius: 10px;
+  font-size: 16px;
 }
 
 @media (max-width: 575.98px) {
@@ -672,20 +762,35 @@ a:hover, a:active {
 }
 
 .footer .content p, .footer .content .phone {
-  font-size: 1.45rem;
+  font-size: 40px;
   color: #ffffff;
   margin-bottom: .75rem;
 }
 
+@media (max-width: 575.98px) {
+  .footer .content p, .footer .content .phone {
+    font-size: 26px;
+  }
+}
+
+.footer .content .phone {
+  font-weight: bold;
+}
+
 .footer .content .mail {
-  font-family: "Roboto";
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 1.75rem;
+  font-size: 60px;
   text-transform: lowercase;
   color: #157CF9;
   margin: 0;
   line-height: 1.5;
+}
+
+@media (max-width: 575.98px) {
+  .footer .content .mail {
+    font-size: 30px;
+  }
 }
 
 a:hover {
