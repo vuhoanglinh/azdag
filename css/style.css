@@ -273,13 +273,20 @@ a:hover, a:active {
   font-style: normal;
   color: #ffffff;
   background: url(../images/background/pattern1.svg) top right no-repeat;
-  background-size: 75%;
-  font-size: 55px;
+  background-size: 80%;
+  font-size: 60px;
   padding: 2rem 0 0;
   line-height: 1;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 991.98px) {
+  .home .text h1 {
+    background-size: 75%;
+  }
+}
+
+@media (max-width: 575.98px) {
   .home .text h1 {
     font-size: 48px;
   }
@@ -287,11 +294,11 @@ a:hover, a:active {
 
 .home .text h1 span {
   color: #157CF9;
-  font-size: 140px;
+  font-size: 160px;
   display: block;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 575.98px) {
   .home .text h1 span {
     font-size: 110px;
   }

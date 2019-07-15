@@ -230,18 +230,22 @@ a:hover, a:active {
       font-style: normal;
       color: $white;
       background: url(../images/background/pattern1.svg) top right no-repeat;
-      background-size: 75%;
-      font-size: 55px;
+      background-size: 80%;
+      font-size: 60px;
       padding: 2rem 0 0;
       line-height: 1;
+      margin-bottom: 20px;
       @include media-breakpoint-down(md) {
+        background-size: 75%;
+      }
+      @include media-breakpoint-down(xs) {
         font-size: 48px;
       }
       span {
         color: $azure-radiance;
-        font-size: 140px;
+        font-size: 160px;
         display: block;
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(xs) {
           font-size: 110px;
         }
       }
