@@ -9,7 +9,7 @@ jQuery(document).ready(
     // `<a data-scroll href="#my-section">My Section</a>` will scroll to an element with the id of 'my-section'.
     function scrollTo(event) {
       event.preventDefault();
-      var selector = $(this).attr("href");
+      let selector = $(this).attr("href");
       history.pushState(null, null, selector);
       scrollToSection(selector);
     }
@@ -35,37 +35,44 @@ jQuery(document).ready(
         $("[data-parallax]").paroller();
       }
     });
-
+    
+    parallax();
     $(window).scroll(function() {
-      var scrolled = $(window).scrollTop();
-      $(".parallax").each(function(index, element) {
-        var initY = $(this).offset().top;
-        var height = $(this).height();
-        var endY = initY + $(this).height();
-        var size = parseInt($(this).attr("data-ratio") || 20);
-
-        // Check if the element is in the viewport.
-        var visible = isInViewport(this);
-        if (visible) {
-          var diff = scrolled - initY;
-          var ratio = Math.round((diff / height) * size);
-          $(this).css(
-            "transform",
-            "translateY(" + parseInt(-(ratio * 1.5)) + "px)"
-          );
-        }
-      });
+      parallax();
     });
   })(jQuery)
 );
 
+function parallax() {
+  let scrolled = $(window).scrollTop();
+  $(".parallax").each(function(index, element) {
+    let initY = $(this).offset().top + 200;
+    let height = $(this).height();
+    let endY = initY + $(this).height();
+    let size = parseInt($(this).attr("data-ratio") || 20);
+
+    // Check if the element is in the viewport.
+    let visible = isInViewport(this);
+    if (visible) {
+      let diff = scrolled - initY;
+      let ratio = Math.round((diff / height) * size);
+      let selector = $(this);
+      let effect = selector.attr('data-effect');
+      selector.addClass(effect).addClass('animated');
+      // setTimeout(function() {
+      //   selector.removeClass('slideInUp animated');
+      // }, 500);
+    }
+  });  
+}
+
 function scrollToSection(selector) {
   try {
-    var section = $(selector);
+    let section = $(selector);
     if (section) {
       $("html, body").animate(
         {
-          scrollTop: section.offset().top
+          scrollTop: section.offset().top - 100
         },
         500
       );
@@ -127,9 +134,11 @@ function slickCarousel(selector) {
       {
         breakpoint: 667,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: '90px',
+          centerMode: true,
+        },
       }
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
@@ -139,7 +148,7 @@ function slickCarousel(selector) {
 }
 
 function isInViewport(node) {
-  var rect = node.getBoundingClientRect();
+  let rect = node.getBoundingClientRect();
   return (
     (rect.height > 0 || rect.width > 0) &&
     rect.bottom >= 0 &&

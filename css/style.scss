@@ -1,6 +1,7 @@
 @import "variables";
 @import "breakpoints";
 @import "mixin";
+@import "animation";
 html,
 body {
   font-family: $main-font;
@@ -535,6 +536,9 @@ a:active {
   &-list {
     @include media-breakpoint-up(md) {
       margin-top: 8em;
+    }
+    @include media-breakpoint-down(xs) {
+      margin-top: 2em;
     }
     .item {
       &-body {
