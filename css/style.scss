@@ -1,18 +1,23 @@
 @import "variables";
 @import "breakpoints";
 @import "mixin";
-html, body {
+html,
+body {
   font-family: $main-font;
   font-size: 14px;
 }
-*:focus,*:active, .btn:focus, .btn:active {
+*:focus,
+*:active,
+.btn:focus,
+.btn:active {
   outline: none !important;
   box-shadow: none;
 }
 a {
   color: $azure-radiance;
 }
-a:hover, a:active {
+a:hover,
+a:active {
   color: $astronaut;
 }
 .icon-close {
@@ -25,10 +30,11 @@ a:hover, a:active {
   &:hover {
     opacity: 1;
   }
-  &:before, &:after {
+  &:before,
+  &:after {
     position: absolute;
     left: 15px;
-    content: ' ';
+    content: " ";
     height: 22px;
     width: 2px;
     background-color: $mine-shaft;
@@ -36,7 +42,7 @@ a:hover, a:active {
   &:before {
     transform: rotate(45deg);
   }
-  
+
   &:after {
     transform: rotate(-45deg);
   }
@@ -55,11 +61,17 @@ a:hover, a:active {
   outline: none;
   border: 0;
   @include media-breakpoint-down(xs) {
-    padding: .75rem;
-    right: .75rem;
+    padding: 0.75rem;
+    right: 0.75rem;
   }
-  &:hover, &:active {
-    background: linear-gradient(0deg, rgba(2,33,104,1) 0%, rgba(2,34,107,1) 39%, rgba(3,25,75,1) 100%);
+  &:hover,
+  &:active {
+    background: linear-gradient(
+      0deg,
+      rgba(2, 33, 104, 1) 0%,
+      rgba(2, 34, 107, 1) 39%,
+      rgba(3, 25, 75, 1) 100%
+    );
   }
 
   .icon {
@@ -97,7 +109,7 @@ a:hover, a:active {
 
   &-main {
     margin-right: 100px;
-    @include media-breakpoint-down(lg) { 
+    @include media-breakpoint-down(lg) {
       margin: 0;
       text-align: center;
     }
@@ -106,15 +118,15 @@ a:hover, a:active {
     @include media-breakpoint-down(lg) {
       position: absolute;
       top: 0;
-      right: 80px; 
+      right: 80px;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
     }
-    @include media-breakpoint-up(lg) { 
+    @include media-breakpoint-up(lg) {
       position: unset;
       top: unset;
-      left: unset;  
+      left: unset;
     }
     .nav-item {
       height: 40px;
@@ -122,12 +134,13 @@ a:hover, a:active {
     }
     .nav-link {
       opacity: 0.5;
-      @include media-breakpoint-down(lg) { 
-        padding-right: .5rem;
-        padding-left: .5rem;
+      @include media-breakpoint-down(lg) {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
       }
     }
-    .active .nav-link, .nav-link:hover {
+    .active .nav-link,
+    .nav-link:hover {
       opacity: 1;
     }
   }
@@ -139,7 +152,8 @@ a:hover, a:active {
       font-size: 14px;
       font-weight: bold;
     }
-    .active .nav-link, .nav-link:hover {
+    .active .nav-link,
+    .nav-link:hover {
       color: $azure-radiance;
     }
   }
@@ -177,7 +191,7 @@ a:hover, a:active {
         -webkit-transform 0.6s cubic-bezier(0.4, 0.25, 0, 1);
       background-color: $white;
       cursor: pointer;
-  
+
       &:nth-child(1) {
         top: 11px;
       }
@@ -185,7 +199,7 @@ a:hover, a:active {
         top: 17px;
       }
     }
-  
+
     &:not(.collapsed) {
       span {
         &:nth-child(1) {
@@ -201,7 +215,8 @@ a:hover, a:active {
   }
 }
 
-.header, .home {
+.header,
+.home {
   background: $tangaroa;
 }
 
@@ -224,8 +239,11 @@ a:hover, a:active {
       padding: 0;
       margin: 0;
     }
+    div {
+      line-height: 1.75rem;
+    }
     h1 {
-      font-family: 'Helvetica Neue';
+      font-family: "Helvetica Neue";
       font-weight: 900;
       font-style: normal;
       color: $white;
@@ -262,20 +280,21 @@ a:hover, a:active {
       width: 200px;
       color: $mine-shaft;
       background: $butter-cup;
-      padding: 1rem .75rem;
+      padding: 1rem 0.75rem;
       font-weight: bold;
     }
     .action {
-      padding: 1rem 0;
+      padding: 2rem 0;
     }
   }
 }
 
 .vision {
-  padding: 2em 0 5em;
+  padding: 2em 0 6em;
   background: $wild-sand;
   color: $mine-shaft;
-  .card-deck, .card-columns {
+  .card-deck,
+  .card-columns {
     margin-top: -6em;
   }
   .card-columns {
@@ -287,6 +306,11 @@ a:hover, a:active {
     color: $mine-shaft;
     border: none;
     background: $white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.15);
+    &-footer:last-child {
+      border-radius: 0 0 10px 10px;
+    }
     @include media-breakpoint-down(md) {
       margin-bottom: 25px;
       flex: unset;
@@ -302,6 +326,9 @@ a:hover, a:active {
       font-size: 24px;
       font-weight: bold;
       text-transform: uppercase;
+    }
+    &-text {
+      line-height: 1.75rem;
     }
     &-footer {
       text-align: center;
@@ -322,19 +349,24 @@ a:hover, a:active {
       color: $danube;
       background: transparent;
       border: 1px solid $danube;
-      padding: .75rem;
+      padding: 0.75rem;
       font-weight: bold;
     }
   }
 
   .content {
-    padding: 5em 0 0;
     margin: auto;
+    padding: 5em 0 0;
     text-align: center;
-    width: 50%;
+    width: 70%;
     display: block;
+    font-size: 24px;
+    line-height: 40px;
     @include media-breakpoint-down(md) {
-      width: 80%;
+      width: 100%;
+    }
+    h2 {
+      margin-bottom: 1.75rem;
     }
     img {
       width: 80%;
@@ -354,7 +386,7 @@ a:hover, a:active {
       display: flex;
       align-items: center;
     }
-    
+
     background: url(../images/background/bg1.jpg) center top no-repeat;
     // background-attachment: fixed;
     color: $white;
@@ -378,7 +410,8 @@ a:hover, a:active {
   }
   &-body {
     padding: 3em 0;
-    .title, .title-condensed {
+    .title,
+    .title-condensed {
       margin-bottom: 2rem;
       font-weight: bold;
       @include media-breakpoint-down(xs) {
@@ -391,7 +424,7 @@ a:hover, a:active {
       position: relative;
       overflow: hidden;
       &:after {
-        content: ' ';
+        content: " ";
         width: 100%;
         height: 100%;
         position: absolute;
@@ -430,6 +463,9 @@ a:hover, a:active {
           padding: 1.25rem;
         }
       }
+      &-text {
+        line-height: 1.75rem;
+      }
     }
   }
 }
@@ -442,7 +478,7 @@ a:hover, a:active {
 .title-condensed {
   @include title-condensed();
   font-size: 50px;
-  font-weight: 400;
+  font-weight: 900;
   font-style: normal;
 }
 .big-title-condensed {
@@ -454,7 +490,13 @@ a:hover, a:active {
     border: 0;
   }
   &-body {
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 2rem 1rem;
+    line-height: 1.75rem;
+    a {
+      font-size: 16px;
+      font-family: $sub-font-condensed;
+      font-weight: bold;
+    }
   }
   .icon-close {
     z-index: 1000;
@@ -502,7 +544,7 @@ a:hover, a:active {
         -ms-flex-pack: center;
         justify-content: center;
         height: 10em;
-        padding: .75rem;
+        padding: 0.75rem;
       }
     }
   }
@@ -549,22 +591,24 @@ a:hover, a:active {
       background: $azure-radiance;
       color: $white;
       border: 0;
-      padding: .575rem 1.75rem;
+      padding: 0.575rem 1.75rem;
       height: 60px;
       border-radius: 10px;
       font-size: 16px;
+      font-weight: bold;
       @include media-breakpoint-down(xs) {
-        padding: .575rem 1.25rem;
+        padding: 0.575rem 1.25rem;
       }
     }
   }
   .content {
     margin-top: 2em;
     text-align: center;
-    p, .phone {
+    p,
+    .phone {
       font-size: 40px;
       color: $white;
-      margin-bottom: .75rem;
+      margin-bottom: 0.75rem;
       @include media-breakpoint-down(xs) {
         font-size: 26px;
       }
@@ -588,7 +632,7 @@ a:hover, a:active {
 a:hover {
   text-decoration: none;
 }
-.list-inline>li {
+.list-inline > li {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
@@ -606,7 +650,7 @@ a:hover {
   }
   &-prev:before,
   &-next:before {
-    content: '';
+    content: "";
     background: url(../images/icon/icon-close.svg) left top no-repeat;
     background-size: contain;
     width: 50px;
