@@ -14,7 +14,7 @@ jQuery(document).ready(
       scrollToSection(selector);
     }
     $("[data-scroll]").on("touchstart click", scrollTo);
-    $("[data-collapsed]").on("touchstart click", function() {
+    $("[data-collapsed]").on("click", function() {
       let id = $(this).attr('href');
       $("[data-collapsed]").each(function() {
         let nextId = $(this).attr('href');

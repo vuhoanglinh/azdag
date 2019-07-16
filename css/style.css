@@ -586,7 +586,7 @@ a:active {
   .navbar-lang {
     position: absolute;
     top: 0;
-    right: 80px;
+    right: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -710,13 +710,13 @@ a:active {
 }
 
 .home .text {
-  padding: 2rem 2em 4em;
+  padding: 2rem 0 4em;
   margin: 0 2em 0 0;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .home .text {
-    padding: 0rem 0em 4em;
+    padding: 0rem 0 4em;
   }
 }
 

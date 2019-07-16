@@ -119,7 +119,7 @@ a:active {
     @include media-breakpoint-down(lg) {
       position: absolute;
       top: 0;
-      right: 80px;
+      right: 40px;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
@@ -231,10 +231,10 @@ a:active {
     text-align: center;
   }
   .text {
-    padding: 2rem 2em 4em;
+    padding: 2rem 0 4em;
     margin: 0 2em 0 0;
     @include media-breakpoint-only(lg) {
-      padding: 0rem 0em 4em;
+      padding: 0rem 0 4em;
     }
     @include media-breakpoint-down(md) {
       padding: 0;
