@@ -672,12 +672,12 @@ a:hover {
 
   &-prev {
     @include media-breakpoint-down(md) {
-      left: 15px;
+      left: 0;
     }
   }
   &-next {
     @include media-breakpoint-down(md) {
-      right: 15px;
+      right: 0;
     }
   }
 }
