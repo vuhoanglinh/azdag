@@ -1225,6 +1225,7 @@ a:active {
 .footer {
   padding: 3em 0;
   color: #ffffff;
+  overflow: hidden;
   background: #022168;
   background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, -webkit-gradient(linear, left top, right top, from(#022168), color-stop(40%, #02226b), to(#03194b));
   background: url(../images/background/pattern3.svg) right 10% bottom no-repeat, linear-gradient(90deg, #022168 0%, #02226b 40%, #03194b 100%);

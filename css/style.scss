@@ -575,6 +575,7 @@ a:active {
 .footer {
   padding: 3em 0;
   color: $white;
+  overflow: hidden;
   @include background-footer();
   .title-condensed {
     margin-bottom: 2rem;
