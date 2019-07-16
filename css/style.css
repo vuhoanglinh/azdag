@@ -382,6 +382,28 @@
   animation-name: slideOutUp;
 }
 
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -698,6 +720,7 @@ a:active {
 
 .home {
   padding: 2em 0 5em;
+  overflow: hidden;
 }
 
 .home .intro {
@@ -707,6 +730,7 @@ a:active {
 .home .image {
   padding: 0 2em;
   text-align: center;
+  height: 500px;
 }
 
 .home .text {
@@ -1356,5 +1380,113 @@ a:hover {
   .slick-next {
     right: 0;
   }
+}
+
+.view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-perspective: 400;
+          perspective: 400;
+}
+
+@media (min-width: 992px) {
+  .plane {
+    width: 400px;
+    height: 400px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .plane {
+    width: 200px;
+    height: 200px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+}
+
+.plane.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: rotateX(60deg) rotateZ(-30deg);
+          transform: rotateX(60deg) rotateZ(-30deg);
+  -webkit-animation: rotate 20s infinite linear;
+          animation: rotate 20s infinite linear;
+}
+
+.plane.main .circle {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border-radius: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #F5B010;
+  -webkit-box-shadow: 0 0 60px #f5b010, inset 0 0 60px #f5b010;
+          box-shadow: 0 0 60px #f5b010, inset 0 0 60px #f5b010;
+}
+
+.plane.main .circle::before, .plane.main .circle::after {
+  content: attr(data-attribute);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 10%;
+  height: 10%;
+  font-size: 40px;
+  border-radius: 100%;
+  color: #F5B010;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.plane.main .circle::before {
+  -webkit-transform: translateZ(-180px);
+          transform: translateZ(-180px);
+}
+
+.plane.main .circle::after {
+  -webkit-transform: translateZ(180px);
+          transform: translateZ(180px);
+}
+
+.plane.main .circle:nth-child(1) {
+  -webkit-transform: rotateZ(72deg) rotateX(63.435deg);
+          transform: rotateZ(72deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(2) {
+  -webkit-transform: rotateZ(144deg) rotateX(63.435deg);
+          transform: rotateZ(144deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(3) {
+  -webkit-transform: rotateZ(216deg) rotateX(63.435deg);
+          transform: rotateZ(216deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(4) {
+  -webkit-transform: rotateZ(288deg) rotateX(63.435deg);
+          transform: rotateZ(288deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(5) {
+  -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
+          transform: rotateZ(360deg) rotateX(63.435deg);
 }
 /*# sourceMappingURL=style.css.map */

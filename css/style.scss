@@ -223,12 +223,14 @@ a:active {
 
 .home {
   padding: 2em 0 5em;
+  overflow: hidden;
   .intro {
     color: $alto;
   }
   .image {
     padding: 0 2em;
     text-align: center;
+    height: 500px;
   }
   .text {
     padding: 2rem 0 4em;
@@ -678,6 +680,62 @@ a:hover {
   &-next {
     @include media-breakpoint-down(md) {
       right: 0;
+    }
+  }
+}
+
+.view {
+  @include view(400);
+}
+    
+.plane {
+  @include media-breakpoint-up(lg) {
+    @include plane(400px, 400px);
+  }
+  @include media-breakpoint-down(xs) {
+    @include plane(200px, 200px);
+  }
+  
+  &.main {
+    @include center;
+    transform: rotateX(60deg) rotateZ(-30deg);
+    animation: rotate 20s infinite linear;
+      
+    .circle {
+      width: $side;
+      height: $side;
+      position: absolute;
+      transform-style: preserve-3d;
+      border-radius: 100%;
+      // border: 2px solid $azure-radiance;
+      box-sizing: border-box;
+      background: $butter-cup;
+      box-shadow: 0 0 60px rgba($butter-cup, 1), inset 0 0 60px rgba($butter-cup, 1);
+  
+      &::before, &::after {
+        content: attr(data-attribute);
+        display: block;
+        @include center;
+        width: 10%;
+        height: 10%;
+        font-size: 40px;
+        border-radius: 100%;
+        color: $butter-cup;
+        //border: 4px solid black
+        box-sizing: border-box;
+      }  
+      &::before {
+        transform: translateZ(-$l);
+      }
+      &::after {
+        transform: translateZ($l);
+      }
+  
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          transform: rotateZ($i / 5 * 360deg) rotateX(63.435deg);
+        }
+      }
     }
   }
 }
