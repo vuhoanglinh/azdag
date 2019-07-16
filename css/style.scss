@@ -98,7 +98,7 @@ a:active {
 }
 .navbar {
   padding: 1rem;
-  border-bottom: 1px solid $astronaut;
+  // border-bottom: 1px solid $astronaut;
   .container {
     position: relative;
   }
@@ -216,13 +216,28 @@ a:active {
   }
 }
 
-.header,
-.home {
-  background: $tangaroa;
+#stars,
+#particles-js {
+	display: block;
+	position: absolute;
+  width: 100%;
+  height: 100%;;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+	z-index: 1;
+}
+.header {
+  position: relative;
+  z-index: 20;
 }
 
 .home {
-  padding: 2em 0 5em;
+  background: $tangaroa;
+  position: relative;
+  margin: 0;
+  padding: 0 0 5em;
   overflow: hidden;
   .intro {
     color: $alto;
@@ -233,8 +248,10 @@ a:active {
     height: 500px;
   }
   .text {
+    position: relative;
     padding: 2rem 0 4em;
     margin: 0 2em 0 0;
+    z-index: 2;
     @include media-breakpoint-only(lg) {
       padding: 0rem 0 4em;
     }
@@ -689,7 +706,7 @@ a:hover {
 }
     
 .plane {
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xs) {
     @include plane(400px, 400px);
   }
   @include media-breakpoint-down(xs) {
@@ -699,7 +716,7 @@ a:hover {
   &.main {
     @include center;
     transform: rotateX(60deg) rotateZ(-30deg);
-    animation: rotate 20s infinite linear;
+    animation: rotate 30s infinite linear;
       
     .circle {
       width: $side;
@@ -709,8 +726,8 @@ a:hover {
       border-radius: 100%;
       // border: 2px solid $azure-radiance;
       box-sizing: border-box;
-      background: $butter-cup;
-      box-shadow: 0 0 60px rgba($butter-cup, 1), inset 0 0 60px rgba($butter-cup, 1);
+      // background: $butter-cup;
+      box-shadow: 0 0 80px rgba($butter-cup, 1), inset 0 0 80px rgba($butter-cup, 1);
   
       &::before, &::after {
         content: attr(data-attribute);

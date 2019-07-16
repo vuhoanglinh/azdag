@@ -472,6 +472,28 @@
   }
 }
 
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translate3d(-2em, 0, 0);
+            transform: translate3d(-2em, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(2em, 0, 0);
+            transform: translate3d(2em, 0, 0);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translate3d(-2em, 0, 0);
+            transform: translate3d(-2em, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(2em, 0, 0);
+            transform: translate3d(2em, 0, 0);
+  }
+}
+
 html,
 body {
   font-family: "Helvetica Neue", sans-serif;
@@ -581,7 +603,6 @@ a:active {
 
 .navbar {
   padding: 1rem;
-  border-bottom: 1px solid #21416F;
 }
 
 .navbar .container {
@@ -713,13 +734,29 @@ a:active {
   transform: translate(-50%, -3px) rotate(45deg);
 }
 
-.header,
-.home {
-  background: #041742;
+#stars,
+#particles-js {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
 }
 
 .home {
-  padding: 2em 0 5em;
+  background: #041742;
+  position: relative;
+  margin: 0;
+  padding: 0 0 5em;
   overflow: hidden;
 }
 
@@ -734,8 +771,10 @@ a:active {
 }
 
 .home .text {
+  position: relative;
   padding: 2rem 0 4em;
   margin: 0 2em 0 0;
+  z-index: 2;
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -1392,13 +1431,11 @@ a:hover {
           perspective: 400;
 }
 
-@media (min-width: 992px) {
-  .plane {
-    width: 400px;
-    height: 400px;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-  }
+.plane {
+  width: 400px;
+  height: 400px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 @media (max-width: 575.98px) {
@@ -1419,8 +1456,8 @@ a:hover {
   margin: auto;
   -webkit-transform: rotateX(60deg) rotateZ(-30deg);
           transform: rotateX(60deg) rotateZ(-30deg);
-  -webkit-animation: rotate 20s infinite linear;
-          animation: rotate 20s infinite linear;
+  -webkit-animation: rotate 30s infinite linear;
+          animation: rotate 30s infinite linear;
 }
 
 .plane.main .circle {
@@ -1432,9 +1469,8 @@ a:hover {
   border-radius: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: #F5B010;
-  -webkit-box-shadow: 0 0 60px #f5b010, inset 0 0 60px #f5b010;
-          box-shadow: 0 0 60px #f5b010, inset 0 0 60px #f5b010;
+  -webkit-box-shadow: 0 0 80px #f5b010, inset 0 0 80px #f5b010;
+          box-shadow: 0 0 80px #f5b010, inset 0 0 80px #f5b010;
 }
 
 .plane.main .circle::before, .plane.main .circle::after {
@@ -1456,13 +1492,13 @@ a:hover {
 }
 
 .plane.main .circle::before {
-  -webkit-transform: translateZ(-180px);
-          transform: translateZ(-180px);
+  -webkit-transform: translateZ(-187.5px);
+          transform: translateZ(-187.5px);
 }
 
 .plane.main .circle::after {
-  -webkit-transform: translateZ(180px);
-          transform: translateZ(180px);
+  -webkit-transform: translateZ(187.5px);
+          transform: translateZ(187.5px);
 }
 
 .plane.main .circle:nth-child(1) {

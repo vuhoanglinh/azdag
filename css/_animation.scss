@@ -311,3 +311,13 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+@keyframes move {
+  0% {
+    transform: translate3d(-2em, 0, 0);
+  }
+  100% {
+    transform: translate3d(2em, 0, 0);
+  }
+}
+  
