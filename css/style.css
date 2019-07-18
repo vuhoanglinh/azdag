@@ -494,6 +494,19 @@
   }
 }
 
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 html,
 body {
   font-family: "Helvetica Neue", sans-serif;
@@ -767,6 +780,14 @@ a:active {
 .home .image {
   padding: 0 2em;
   text-align: center;
+}
+
+.home .image img {
+  -webkit-animation: spin 20s linear infinite;
+          animation: spin 20s linear infinite;
+}
+
+.home .image .view {
   height: 500px;
 }
 

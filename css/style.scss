@@ -245,7 +245,12 @@ a:active {
   .image {
     padding: 0 2em;
     text-align: center;
-    height: 500px;
+    img {
+      animation:spin 20s linear infinite;
+    }
+    & .view {
+      height: 500px;
+    }
   }
   .text {
     position: relative;
