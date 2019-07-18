@@ -405,7 +405,7 @@ a:active {
   color: $mine-shaft;
   &-top {
     @include media-breakpoint-up(md) {
-      padding-top: 16em;
+      padding-top: 12em;
     }
     @include media-breakpoint-down(xs) {
       display: flex;
