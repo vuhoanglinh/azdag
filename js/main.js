@@ -1,19 +1,18 @@
-/**
- * Smooth Scrolling Navigation
- */
 jQuery(document).ready(
   (function($) {
-    // Scroll to the desired section on click
-    // Make sure to add the `data-scroll` attribute to your `<a>` tag.
-    // Example:
-    // `<a data-scroll href="#my-section">My Section</a>` will scroll to an element with the id of 'my-section'.
-    function scrollTo(event) {
-      event.preventDefault();
-      let selector = $(this).attr("href");
-      history.pushState(null, null, selector);
-      scrollToSection(selector);
-    }
     $("[data-scroll]").on("touchstart click", scrollTo);
+    scrollToTop(".back-to-top");
+    slickCarousel("[data-slick]");
+    scrollToSection(location.hash);
+    parallax(".parallax");
+    fixedHeader('#header');
+    activeNav("[data-scroll]");
+    $(window).on('DOMContentLoaded load resize scroll', function() {
+      parallax(".parallax");
+      activeNav("[data-scroll]");
+      fixedHeader('#header');
+    }); 
+
     $("[data-collapsed]").on("click", function() {
       let id = $(this).attr('href');
       $("[data-collapsed]").each(function() {
@@ -24,37 +23,46 @@ jQuery(document).ready(
         }
       });
     });
-    scrollToTop(".back-to-top");
-    slickCarousel("[data-slick]");
-    scrollToSection(location.hash);
-    parallax();
-    fixedHeader('#header');
-    $(window).scroll(function() {
-      parallax();
-      fixedHeader('#header');
-    });
   })(jQuery)
 );
 
-function parallax() {
-  let scrolled = $(window).scrollTop();
-  $(".parallax").each(function(index, element) {
-    let initY = $(this).offset().top + 200;
-    let height = $(this).height();
-    let endY = initY + $(this).height();
-    let size = parseInt($(this).attr("data-ratio") || 20);
+function scrollTo(event) {
+  event.preventDefault();
+  let selector = $(this).attr("href");
+  history.pushState(null, null, selector);
+  scrollToSection(selector);
+}
 
+function activeNav(selector) {
+  try {
+    $(selector).each(function(index, element) {
+      let id = $(this).attr('href');
+      let node = $(id).get(0);
+      let rect = node.getBoundingClientRect();
+      let clientHeight = parseInt(window.innerHeight) / 2;
+      let visible = isInViewport(node);
+      if (visible) {
+        // history.pushState(null, null, id);
+        $(this).parent('li').addClass('active');
+      }
+
+      if (!visible || rect.top > clientHeight || rect.bottom < clientHeight) {
+        $(this).parent('li').removeClass('active');
+      }
+    });
+  } catch(ex) {
+    console.log(ex);
+  }
+}
+
+function parallax(selector) {
+  $(selector).each(function(index, element) {
     // Check if the element is in the viewport.
     let visible = isInViewport(this);
     if (visible) {
-      let diff = scrolled - initY;
-      let ratio = Math.round((diff / height) * size);
       let selector = $(this);
       let effect = selector.attr('data-effect');
       selector.addClass(effect).addClass('animated');
-      // setTimeout(function() {
-      //   selector.removeClass('slideInUp animated');
-      // }, 500);
     }
   });  
 }
