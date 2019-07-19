@@ -404,14 +404,10 @@ a:active {
   background: $alto;
   color: $mine-shaft;
   &-top {
-    @include media-breakpoint-up(md) {
-      padding-top: 12em;
-    }
+    padding-top: 12em;
     @include media-breakpoint-down(xs) {
-      display: flex;
-      align-items: center;
+      padding-top: 14em;
     }
-
     background: url(../images/background/bg1.jpg) center top no-repeat;
     // background-attachment: fixed;
     color: $white;
@@ -760,5 +756,15 @@ a:hover {
         }
       }
     }
+  }
+}
+
+.fixed-top {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  &.header {
+    background: $tangaroa-blur;
+    border-bottom: 1px solid $astronaut;
   }
 }

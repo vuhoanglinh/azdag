@@ -27,18 +27,11 @@ jQuery(document).ready(
     scrollToTop(".back-to-top");
     slickCarousel("[data-slick]");
     scrollToSection(location.hash);
-    /**
-     * Parallax Scrolling
-     */
-    jQuery(document).ready(function($) {
-      if (jQuery().paroller) {
-        $("[data-parallax]").paroller();
-      }
-    });
-    
     parallax();
+    fixedHeader('#header');
     $(window).scroll(function() {
       parallax();
+      fixedHeader('#header');
     });
   })(jQuery)
 );
@@ -81,6 +74,15 @@ function scrollToSection(selector) {
     }
   } catch (ex) {
     console.log(ex);
+  }
+}
+
+function fixedHeader(selector) {
+  if ($(this).scrollTop() >= 50) {
+    // If page is scrolled more than 50px
+    $(selector).addClass("fixed-top");
+  } else {
+    $(selector).removeClass("fixed-top");
   }
 }
 

@@ -986,26 +986,16 @@ a:active {
 }
 
 .portfolio-top {
+  padding-top: 12em;
   background: url(../images/background/bg1.jpg) center top no-repeat;
   color: #ffffff;
   height: 700px;
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .portfolio-top {
-    padding-top: 12em;
-  }
-}
-
 @media (max-width: 575.98px) {
   .portfolio-top {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    padding-top: 14em;
   }
 }
 
@@ -1546,5 +1536,16 @@ a:hover {
 .plane.main .circle:nth-child(5) {
   -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
           transform: rotateZ(360deg) rotateX(63.435deg);
+}
+
+.fixed-top {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+}
+
+.fixed-top.header {
+  background: rgba(4, 23, 66, 0.95);
+  border-bottom: 1px solid #21416F;
 }
 /*# sourceMappingURL=style.css.map */
